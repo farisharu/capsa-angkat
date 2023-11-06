@@ -26,7 +26,7 @@ public class PlayerInfo : Singleton<PlayerInfo>
         PopulatePlayerData(playerData);
 
         // load main menu
-        SceneController.Instance.LoadScene("Main Menu", true);
+        StartCoroutine(GoToMainMenu());
     }
 
     protected override void Awake()
@@ -97,6 +97,12 @@ public class PlayerInfo : Singleton<PlayerInfo>
         };
 
         SavePlayerData(playerData);
+    }
+
+    private IEnumerator GoToMainMenu()
+    {
+        yield return new WaitForSeconds(2);
+        SceneController.Instance.LoadScene("Main Menu");
     }
 
     #region  GETTER/SETTER

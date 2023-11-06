@@ -12,11 +12,16 @@ public class PlayerInfo : Singleton<PlayerInfo>
     private string savePath;
 
     #region PLAYER_DATA
+
     [SerializeField] private string playerId;
     private string uid;
     [SerializeField] private int playerCash;
+    [SerializeField] private string playerAvatar;
     [SerializeField] private List<MatchHistory> matchHistories = new List<MatchHistory>();
     #endregion
+
+    // other data
+    [SerializeField] private List<AvatarData> avatarDatas = new List<AvatarData>();
     
     private void Initialize()
     {
@@ -69,6 +74,7 @@ public class PlayerInfo : Singleton<PlayerInfo>
                 playerId = "CA1000001",
                 uid = SystemInfo.deviceUniqueIdentifier,
                 playerCash = 500000,
+                playerAvatar = "",
                 matchHistoryData = new List<MatchHistory>()
             };
 
@@ -83,6 +89,7 @@ public class PlayerInfo : Singleton<PlayerInfo>
         playerId        = data.playerId;
         uid             = data.uid;
         playerCash      = data.playerCash;
+        playerAvatar    = data.playerAvatar;
         matchHistories  = data.matchHistoryData;
     }
 
@@ -93,6 +100,7 @@ public class PlayerInfo : Singleton<PlayerInfo>
             playerId = playerId,
             uid = uid,
             playerCash = playerCash,
+            playerAvatar = playerAvatar,
             matchHistoryData = matchHistories
         };
 
@@ -123,6 +131,45 @@ public class PlayerInfo : Singleton<PlayerInfo>
 
         // save to local
         SaveToPlayerData();
+    }
+
+    public string GetPlayerAvatarId()
+    {
+        return playerAvatar;
+    }
+
+    public void ChangeAvatar(string newAvatar)
+    {
+        playerAvatar = newAvatar;
+
+        SaveToPlayerData();
+    }
+
+    public Sprite GetSmileFaceById(string avatarId)
+    {
+        for(int i = 0; i < avatarDatas.Count; i++)
+        {
+            if(avatarDatas[i].avatarId == avatarId)
+                return avatarDatas[i].smileFace;
+        }
+
+        return null;
+    }
+
+    public Sprite GetSadFaceById(string avatarId)
+    {
+        for(int i = 0; i < avatarDatas.Count; i++)
+        {
+            if(avatarDatas[i].avatarId == avatarId)
+                return avatarDatas[i].sadFace;
+        }
+
+        return null;
+    }
+
+    public List<AvatarData> GetAllAvatarData()
+    {
+        return avatarDatas;
     }
 
     public List<MatchHistory> GetMatchHistory()

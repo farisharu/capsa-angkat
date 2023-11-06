@@ -169,7 +169,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerId: 
   playerCash: 0
+  playerAvatar: 
   matchHistories: []
+  avatarDatas:
+  - {fileID: 11400000, guid: f8e14d1fc0c62624798ab79f20e40c3a, type: 2}
+  - {fileID: 11400000, guid: cccf49ca5e70da94b8f8b06ee5976859, type: 2}
+  - {fileID: 11400000, guid: 5f84e2faa1b40d04fb4c4fae13dbffce, type: 2}
+  - {fileID: 11400000, guid: e784e60f5e71b314eb371245d6a7a777, type: 2}
 --- !u!1 &511473985
 GameObject:
   m_ObjectHideFlags: 0

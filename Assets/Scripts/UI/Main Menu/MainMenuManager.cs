@@ -74,4 +74,9 @@ public class MainMenuManager : MonoBehaviour
             betButtons[i].GetComponent<Image>().color = Color.white;
         }
     }
+
+    public void GoToGameplay()
+    {
+        SceneController.Instance.LoadScene("Gameplay");
+    }
 }

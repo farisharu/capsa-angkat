@@ -31,6 +31,20 @@ namespace GlobalEnum
         Two
     }
 
+    public enum CombinationType
+    {
+        None,
+        Single,
+        Pair,
+        ThreeOfAKind,
+        Straight,
+        Flush,
+        FullHouse,
+        FourOFAKind,
+        StraightFlush,
+        RoyalFlush
+    }
+
     public enum PlayerEmotion
     {
         IDLE,

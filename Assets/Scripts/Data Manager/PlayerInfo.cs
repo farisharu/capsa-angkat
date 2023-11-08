@@ -68,7 +68,7 @@ public class PlayerInfo : Singleton<PlayerInfo>
         }
         else
         {
-            Debug.Log("Save data is not exist, create new default player data");
+            //Debug.Log("Save data is not exist, create new default player data");
             PlayerSaveData playerdata = new PlayerSaveData
             {
                 playerId = "CA1000001",

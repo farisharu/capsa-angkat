@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GlobalEnum;
-using Unity.Mathematics;
 
 public class CardFactory : MonoBehaviour
 {
@@ -17,7 +16,7 @@ public class CardFactory : MonoBehaviour
         {
             foreach (CardRank rank in System.Enum.GetValues(typeof(CardRank)))
             {
-                Card newCard = Instantiate(cardPrefab, Vector2.zero, quaternion.identity, cardHolder);
+                Card newCard = Instantiate(cardPrefab, Vector2.zero, Quaternion.identity, cardHolder);
                 newCard.SetCard(suit, rank);
                 newCard.SetCardRank(CardRankToSymbol(rank));
                 newCard.SetCardSuit(CardSuitToIcon(suit));
